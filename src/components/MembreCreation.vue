@@ -13,7 +13,7 @@
       <label for="password">Mot de passe</label>
       <input type="password" v-model="password" class="form-control" id="password" placeholder="Mot de passe">
     </div>
-    <center><button type="submit" class="btn btn-primary">Créer compte</button></center>
+    <center><button type="submit" class="btn btn-outline-primary">Créer compte</button></center>
     <center><router-link to="/connexion">Annuler</router-link></center>
   </form>
 </div>
@@ -36,7 +36,6 @@ export default {
         email: this.email,
         password: this.password,
       }).then((response) => {
-        console.log('Le membre '+response.data.fullname+' a été créé. Vous pouvez vous connecter.')
         this.$router.push({path: '/connexion'});
       }).catch((error) => {
         console.log(error)
@@ -48,6 +47,7 @@ export default {
 
 <style scoped>
 .card {
+  top: 30vh;
   padding: 10px;
   margin: 0 auto;
   float: none;

@@ -1,21 +1,5 @@
 <template>
 	<div>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-    	  			<li class="nav-item">
-    	    			<a class="nav-link" href="#/conversations">Convesation</a>
-    	  			</li>
-    	  			<li class="nav-item">
-    	   				<a class="nav-link" href="#/membres">Membres</a>
-    	  			</li>
-    	  			<form class="form-inline" @submit="logOut">
-    					<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Se déconnecter</button>
-  					</form>
-    			</ul>
-			</div>
-		</nav>
-		<hr>
 		<div class="card" style="width: 18rem;">
 			<form @submit="creerConversation">
 				<div class="form-group">
@@ -26,7 +10,7 @@
     				<label for="topic">Topic</label>
     				<input type="text" v-model="topic" class="form-control" id="topic" placeholder="Topic">
   				</div>
-				<center><input type="submit" value="Créer la conversation"></center>
+				<center><input type="submit" class="btn btn-outline-primary" value="Créer la conversation"></center>
 				<center><router-link to="/conversations">Retour</router-link></center>
 			</form>
 		</div>
@@ -48,7 +32,6 @@
         			label: this.label,
         			topic: this.topic
       			}).then((response) => {
-        			console.log('La conversation '+response.data.label+' a été créé.')
         			this.$router.push({path: '/conversations'});
       			})
 			}

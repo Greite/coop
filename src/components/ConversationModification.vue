@@ -1,35 +1,19 @@
 <template>
 	<div>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="collapse navbar-collapse" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-    	  			<li class="nav-item">
-    	    			<a class="nav-link" href="#/conversations">Convesation</a>
-    	  			</li>
-    	  			<li class="nav-item">
-    	   				<a class="nav-link" href="#/membres">Membres</a>
-    	  			</li>
-    	  			<form class="form-inline" @submit="logOut">
-    					<button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Se déconnecter</button>
-  					</form>
-    			</ul>
-			</div>
-		</nav>
-		<hr>
-	<div class="card" style="width: 18rem;">
-		<form @submit="modifierConversation">
-			<div class="form-group">
-    			<label for="label">Label</label>
-    			<input type="text" v-model="label" class="form-control" id="label" placeholder="Label">
-  			</div>
-  			<div class="form-group">
-    			<label for="topic">Topic</label>
-    			<input type="text" v-model="topic" class="form-control" id="topic" placeholder="Topic">
-  			</div>
-			<center><input type="submit" value="Modifier la conversation"></center>
-			<center><router-link to="/conversations">Retour</router-link></center>
-		</form>
-	</div>
+		<div class="card" style="width: 18rem;">
+			<form @submit="modifierConversation">
+				<div class="form-group">
+    				<label for="label">Label</label>
+    				<input type="text" v-model="label" class="form-control" id="label" placeholder="Label">
+  				</div>
+  				<div class="form-group">
+    				<label for="topic">Topic</label>
+    				<input type="text" v-model="topic" class="form-control" id="topic" placeholder="Topic">
+  				</div>
+				<center><input type="submit" class="btn btn-outline-primary" value="Modifier la conversation"></center>
+				<center><router-link to="/conversations">Retour</router-link></center>
+			</form>
+		</div>
 	</div>
 </template>
 
@@ -42,13 +26,19 @@
 				topic: ''
 			}
 		},
+		mounted(){
+			window.axios.get('channels/'+this.$route.params.id)
+				.then((response) => {
+        			this.label=response.data.label
+        			this.topic=response.data.topic
+      			})
+		},
 		methods: {
 			modifierConversation(){
 				window.axios.put('channels/'+this.$route.params.id, {
         			label: this.label,
         			topic: this.topic
       			}).then((response) => {
-        			console.log('La conversation '+response.data.label+' a été modifiée.')
         			this.$router.push({path: '/conversations'});
 
       			})

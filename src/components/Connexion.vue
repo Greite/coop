@@ -9,7 +9,7 @@
     		<label for="password">Mot de passe</label>
     		<input type="password" v-model="password" class="form-control" id="password" placeholder="Mot de passe">
   		</div>
-			<center><button type="submit" class="btn btn-primary">Connexion</button></center>
+			<center><button type="submit" class="btn btn-outline-primary">Connexion</button></center>
 			<center><router-link to="/membre-creation">Créer un compte</router-link></center>
 	</form>
 	</div>
@@ -45,6 +45,7 @@ export default {
 
 <style scoped>
 .card {
+	top: 30vh;
 	padding: 10px;
     margin: 0 auto;
     float: none;
