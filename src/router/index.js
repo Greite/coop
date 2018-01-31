@@ -11,41 +11,41 @@ import MembreListe from "@/components/MembreListe";
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/connexion',
-      component: Connexion
-    },
-    {
-    	path: '/membre-creation',
-    	component: MembreCreation
-    },
-    {
-    	path: '/conversations',
-    	component: ConversationListe
-    },
-    {
-      path: '/conversation-creation',
-      component: ConversationCreation
-    },
-    {
-      name: 'conversation-modification',
-      path: '/conversation-modification/:id',
-      component: ConversationModification
-    },
-    {
-      name: 'conversation-suppression',
-      path: '/conversation-suppression/:id',
-      component: ConversationListe
-    },
-    {
-      name: 'conversation',
-      path: '/conversation/:id',
-      component: ConversationAfficher
-    },
-    {
-      path: '/membres',
-      component: MembreListe
-    }
-  ]
+	routes: [
+	{
+		path: '/connexion',
+		component: Connexion
+	},
+	{
+		path: '/membre-creation',
+		component: MembreCreation
+	},
+	{
+		path: '/conversations',
+		component: ConversationListe
+	},
+	{
+		path: '/conversation-creation',
+		component: ConversationCreation
+	},
+	{
+		name: 'conversation-modification',
+		path: '/conversation-modification/:id',
+		component: ConversationModification
+	},
+	{
+		name: 'conversation-suppression',
+		path: '/conversation-suppression/:id',
+		component: ConversationListe
+	},
+	{
+		name: 'conversation',
+		path: '/conversation/:id',
+		component: ConversationAfficher
+	},
+	{
+		path: '/membres',
+		component: MembreListe
+	}
+	]
 })
