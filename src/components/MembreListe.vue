@@ -3,11 +3,7 @@
 		<div>
 			<ul class="list-group">
 				<li class="list-group-item"><center>Membre(s) <span class="badge badge-primary badge-pill">{{members.length}}</span></center></li>
-    			<li class="list-group-item" v-for="member of members">
-    				<span><strong>{{member.fullname}}</strong></span>
-    				<span>{{member.email}}</span>
-    				<span><button type="button" class="btn btn-outline-danger float-right" @click="membreSuppression(member._id)">Supprimer</button></span>
-    			</li>
+    			<membreElement v-for="member of members" :member="member"></membreElement>
 			</ul>
 		</div>
 	</div>
@@ -15,8 +11,12 @@
 </template>
 
 <script>
+
+	import MembreElement from './MembreElement.vue'
+
 	export default {
 		name: 'MembreListe',
+		components: {MembreElement},
 		data(){
 			return {
 				members: []
@@ -32,9 +32,6 @@
     		})
 		},
 		methods: {
-			membreSuppression(id){
-				window.axios.delete('members/'+id);
-			}
 		}
 	}
 </script>
