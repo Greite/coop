@@ -1,6 +1,6 @@
 # coop
 
-> A Vue.js project
+> Projet COOP BERNIER Léo PAINTEAUX Gauthier
 
 ## Build Setup
 
