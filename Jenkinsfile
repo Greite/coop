@@ -5,7 +5,6 @@ pipeline {
       steps {
         echo 'Hello World'
         sh 'npm install'
-        sh 'bower install'
       }
     }
   }
